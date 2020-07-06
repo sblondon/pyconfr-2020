@@ -1,4 +1,4 @@
-# PyConFr 2019
+# PyConFr 2020
 
 You've seen a mistake? Please go to the `templates` folder above an fix it ;).
 

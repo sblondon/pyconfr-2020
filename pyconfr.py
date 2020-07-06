@@ -9,12 +9,12 @@ from icalendar import Calendar
 from markdown2 import Markdown
 from sassutils.wsgi import SassMiddleware
 
-app = Flask(__name__, static_url_path='/2019/static')
+app = Flask(__name__, static_url_path='/2020/static')
 app.wsgi_app = SassMiddleware(app.wsgi_app, {
     'pyconfr': {
         'sass_path': 'static/sass',
         'css_path': 'static/css',
-        'wsgi_path': '/2019/static/css',
+        'wsgi_path': '/2020/static/css',
         'strip_extension': True}})
 
 
@@ -24,18 +24,18 @@ def slug(string):
 
 
 @app.route('/')
-@app.route('/2019/')
-@app.route('/2019/<lang>/<name>.html')
+@app.route('/2020/')
+@app.route('/2020/<lang>/<name>.html')
 def page(name='index', lang='fr'):
     return render_template(
         '{lang}/{name}.html.jinja2'.format(name=name, lang=lang),
         page_name=name, lang=lang)
 
 
-@app.route('/2019/<lang>/talks/<category>.html')
+@app.route('/2020/<lang>/talks/<category>.html')
 def talks(lang, category):
     talks = []
-    with urlopen('https://cfp-2019.pycon.fr/schedule/xml/') as fd:
+    with urlopen('https://cfp-2020.pycon.fr/schedule/xml/') as fd:
         tree = ElementTree.fromstring(fd.read().decode('utf-8'))
     for day in tree.findall('.//day'):
         for event in day.findall('.//event'):
@@ -54,9 +54,9 @@ def talks(lang, category):
         category=category, talks=talks, lang=lang)
 
 
-@app.route('/2019/<lang>/full-schedule.html')
+@app.route('/2020/<lang>/full-schedule.html')
 def schedule(lang):
-    with urlopen('https://cfp-2019.pycon.fr/schedule/html/') as fd:
+    with urlopen('https://cfp-2020.pycon.fr/schedule/html/') as fd:
         html = fd.read().decode('utf-8')
 
     if lang == 'fr':
@@ -100,9 +100,9 @@ def schedule(lang):
     return render_template('schedule.html.jinja2', data=soup)
 
 
-@app.route('/2019/pyconfr-2019.ics')
+@app.route('/2020/pyconfr-2020.ics')
 def calendar():
-    with urlopen('https://cfp-2019.pycon.fr/schedule/ics/') as fd:
+    with urlopen('https://cfp-2020.pycon.fr/schedule/ics/') as fd:
         calendar = Calendar.from_ical(fd.read())
     # Delete sprints
     calendar.subcomponents = [
