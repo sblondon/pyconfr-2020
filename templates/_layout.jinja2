@@ -15,7 +15,7 @@
   ('sprint', ('Sprints', 'Sprints')),
 ) -%}
 
-{%- set title = dict(MENU + EXTRA_PAGES).get(page_name, ['Bordeaux', 'Bordeaux'])[1 if lang == 'en' else 0] -%}
+{%- set title = dict(MENU + EXTRA_PAGES).get(page_name, ['Strasbourg', 'Strasbourg'])[1 if lang == 'en' else 0] -%}
 
 {%- from '_sponsors.jinja2' import sponsors -%}
 {%- from '_map.jinja2' import map -%}
