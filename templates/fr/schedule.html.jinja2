@@ -10,33 +10,24 @@
   <article>
     <h3>Calendrier</h3>
     <p>
-      Le calendrier est disponible ci-dessous, sur une <a class="button"
-      href="{{ url_for('schedule', lang=lang) }}">page en plein écran</a>,
-      ou <a class="button" href="{{ url_for('calendar') }}">dans
-      votre application de calendrier favorite</a>.
+      L’appel à conférences sera ouvert début septembre et le calendrier sera
+      disponible début octobre.
     </p>
-    <p>
-      Vous pouvez également lire la description des
-      <a href="{{ url_for('talks', lang=lang, category='keynote') }}">plénières</a>, des
-      <a href="{{ url_for('talks', lang=lang, category='conference') }}">conférences</a>, des
-      <a href="{{ url_for('talks', lang=lang, category='workshop')}}">ateliers</a> et des
-      <a href="{{ url_for('talks', lang=lang, category='sprint') }}">sprints</a>.
-    </p>
-
-    <!-- <iframe src="{{ url_for('schedule', lang=lang) }}"></iframe> -->
   </article>
 
   <article id="register">
     <h3>Inscriptions</h3>
     <p>
-      TODO
+      Les inscriptions seront ouvertes début octobre.
     </p>
   </article>
 
   <article id="dinner">
     <h3>Repas du samedi soir</h3>
     <p>
-      TODO
+      Un repas est organisé le samedi soir, uniquement pour les personnes ayant
+      réservé lors de leur inscription. Les inscriptions seront ouvertes début
+      octobre.
     </p>
   </article>
 {% endblock content %}
